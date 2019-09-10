@@ -1,0 +1,11 @@
+node('SLAVE') {
+
+    stage('Code Check-Out'){
+        git 'https://github.com/rkanakala/jenkins-jobs.git'
+    }
+
+    stage("Compile") {
+        sh '''
+mvn compile
+'''
+    }
