@@ -9,4 +9,12 @@ node('SLAVE') {
 mvn compile
 '''
     }
+        stage('Code Quality Check') {
+        sh '''
+mvn sonar:sonar \
+  -Dsonar.projectKey=studentapp-ui \
+  -Dsonar.host.url=http://localhost:9000 \
+  -Dsonar.login=0700c1d1c256244ff1b223a74e55f853641b8004
+'''
+    }
 }    
